@@ -23,7 +23,35 @@ jobs:
           channel: 'stable'
           cache: true
 
-      - name: Tạo cấu trúc Android
+      - name: Tự động tạo tệp cấu hình pubspec.yaml chuẩn
+        run: |
+          cat << 'EOF' > pubspec.yaml
+          name: so_truc_ban_tru
+          description: "Sổ trực bán trú THCS Phan Thanh"
+          publish_to: 'none'
+          version: 1.0.0+1
+
+          environment:
+            sdk: '>=3.0.0 <4.0.0'
+
+          dependencies:
+            flutter:
+              sdk: flutter
+            flutter_localizations:
+              sdk: flutter
+            pdf: ^3.10.8
+            printing: ^5.12.0
+            intl: ^0.20.3
+            cupertino_icons: ^1.0.6
+            shared_preferences: ^2.2.3
+
+          flutter:
+            uses-material-design: true
+            assets:
+              - assets/fonts/
+          EOF
+
+      - name: Tạo cấu trúc nền tảng Android
         run: |
           flutter create temp_app --platforms=android --project-name=so_truc_ban_tru
           cp -r temp_app/android .
