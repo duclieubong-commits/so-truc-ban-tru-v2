@@ -47,7 +47,7 @@ class BoardingDutyApp extends StatelessWidget {
   }
 }
 
-// WIDGET BẢNG ĐIỂM DANH 9 PHÒNG
+// BẢNG ĐIỂM DANH 9 PHÒNG
 class RoomAttendanceTableWidget extends StatelessWidget {
   final String title;
   final String timeFrame;
@@ -446,7 +446,6 @@ class _DutyReportScreenState extends State<DutyReportScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // KHỐI THỜI GIAN
             Card(
               margin: const EdgeInsets.fromLTRB(12, 12, 12, 6),
               elevation: 2,
@@ -535,8 +534,6 @@ class _DutyReportScreenState extends State<DutyReportScreen> {
                 ),
               ),
             ),
-
-            // KHỐI 03 NGƯỜI TRỰC
             Card(
               margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               elevation: 2,
@@ -610,8 +607,6 @@ class _DutyReportScreenState extends State<DutyReportScreen> {
                 ),
               ),
             ),
-
-            // MỤC 1: SĨ SỐ LỚP 6A - 9B
             Card(
               margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               elevation: 2,
@@ -694,16 +689,12 @@ class _DutyReportScreenState extends State<DutyReportScreen> {
                 ),
               ),
             ),
-
-            // MỤC 2: SĨ SỐ BÁN TRÚ
             RoomAttendanceTableWidget(
               title: '2. Theo dõi sĩ số học sinh bán trú',
               timeFrame: '12h15 – 13h30',
               rooms: report.noonRoomAttendances,
               onDataChanged: () => setState(() {}),
             ),
-
-            // MỤC 5.1 & 5.2
             RoomAttendanceTableWidget(
               title: '5.1 Giám sát ăn trưa',
               timeFrame: '11h55 – 12h05',
@@ -716,24 +707,18 @@ class _DutyReportScreenState extends State<DutyReportScreen> {
               rooms: report.dinnerAttendances,
               onDataChanged: () => setState(() {}),
             ),
-
-            // MỤC 6
             RoomAttendanceTableWidget(
               title: '6. Quản lý giờ tự học ở nội trú',
               timeFrame: '19h00 – 20h30',
               rooms: report.studyAttendances,
               onDataChanged: () => setState(() {}),
             ),
-
-            // MỤC 7
             RoomAttendanceTableWidget(
               title: '7. Theo dõi sĩ số và HS ăn sáng hôm sau',
               timeFrame: '06h00 – 06h45',
               rooms: report.breakfastAttendances,
               onDataChanged: () => setState(() {}),
             ),
-
-            // CÁC MỤC NHẬN XÉT (3, 4, 8, 9)
             Card(
               margin: const EdgeInsets.all(12),
               elevation: 2,
